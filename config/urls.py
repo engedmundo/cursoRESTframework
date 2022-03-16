@@ -6,6 +6,7 @@ from apps.ratings.api.viewsets import RatingViewSet
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'attractions', AttractionViewSet, basename='Attraction')
@@ -17,4 +18,5 @@ router.register(r'ratings', RatingViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token),
 ]
