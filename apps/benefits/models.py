@@ -9,3 +9,8 @@ class Benefit(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ["name", ]
+        verbose_name = 'Recurso'
+        verbose_name_plural = 'Recursos'

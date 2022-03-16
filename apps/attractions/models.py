@@ -1,3 +1,5 @@
+from tabnanny import verbose
+
 from django.db import models
 
 from apps.benefits.models import Benefit
@@ -24,3 +26,8 @@ class Attraction(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ["name", ]
+        verbose_name = 'Atração'
+        verbose_name_plural = 'Atrações'

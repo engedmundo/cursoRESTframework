@@ -15,3 +15,8 @@ class Location(models.Model):
 
     def __str__(self):
         return self.line1
+
+    class Meta:
+        ordering = ["city", ]
+        verbose_name = 'Endereço'
+        verbose_name_plural = 'Endereços'

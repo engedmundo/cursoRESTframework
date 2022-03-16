@@ -11,4 +11,9 @@ class Comment(models.Model):
     status = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.usuario.username
+        return self.comment
+
+    class Meta:
+        ordering = ['user', 'data']
+        verbose_name = 'Comentário'
+        verbose_name_plural = 'Comentários'

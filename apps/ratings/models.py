@@ -9,4 +9,9 @@ class Rating(models.Model):
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.usuario.username
+        return self.user.username
+
+    class Meta:
+        ordering = ['user', 'rating']
+        verbose_name = 'Avaliação'
+        verbose_name_plural = 'Avaliações'
