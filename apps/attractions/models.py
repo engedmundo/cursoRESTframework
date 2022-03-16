@@ -10,7 +10,7 @@ from apps.ratings.models import Rating
 
 class Attraction(models.Model):
     name = models.CharField(max_length=150, verbose_name="Nome")
-    descrption = models.TextField(verbose_name="Descrição")
+    description = models.TextField(verbose_name="Descrição")
     approved = models.BooleanField(default=False, verbose_name="Aprovado")
     location = models.ForeignKey(
         Location,
