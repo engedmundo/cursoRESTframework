@@ -3,6 +3,7 @@ from django.db import models
 from apps.benefits.models import Benefit
 from apps.comments.models import Comment
 from apps.locations.models import Location
+from apps.ratings.models import Rating
 
 
 class Attraction(models.Model):
@@ -10,17 +11,16 @@ class Attraction(models.Model):
     descrption = models.TextField(verbose_name="Descrição")
     approved = models.BooleanField(default=False, verbose_name="Aprovado")
     location = models.ForeignKey(
-        Location, on_delete=models.SET_NULL, null=True)
+        Location,
+        on_delete=models.SET_NULL,
+        null=True)
     benefit = models.ManyToManyField(Benefit, verbose_name="Recursos")
     comment = models.ManyToManyField(Comment, verbose_name='Comentário')
-
-
-"""
-    avaliacoes = models.ManyToManyField(Avaliacao)
+    rating = models.ManyToManyField(Rating, verbose_name='Avaliação')
     foto = models.ImageField(
-        upload_to='pontos-turisticos', null=True, blank=True)
-"""
+        upload_to='attractions',
+        null=True,
+        blank=True)
 
-
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
