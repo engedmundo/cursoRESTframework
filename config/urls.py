@@ -8,7 +8,7 @@ from django.urls import include, path
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'attractions', AttractionViewSet)
+router.register(r'attractions', AttractionViewSet, basename='Attraction')
 router.register(r'benefits', BenefitViewSet)
 router.register(r'comments', CommentViewSet)
 router.register(r'locations', LocationViewSet)
