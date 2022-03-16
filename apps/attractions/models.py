@@ -17,8 +17,18 @@ class Attraction(models.Model):
         on_delete=models.SET_NULL,
         null=True)
     benefit = models.ManyToManyField(Benefit, verbose_name="Recursos")
-    comment = models.ManyToManyField(Comment, verbose_name='Comentário')
-    rating = models.ManyToManyField(Rating, verbose_name='Avaliação')
+    comment = models.ManyToManyField(
+        Comment,
+        verbose_name='Comentário',
+        null=True,
+        blank=True
+    )
+    rating = models.ManyToManyField(
+        Rating,
+        verbose_name='Avaliação',
+        null=True,
+        blank=True
+    )
     foto = models.ImageField(
         upload_to='attractions',
         null=True,
